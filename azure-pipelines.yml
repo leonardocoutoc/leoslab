@@ -4,6 +4,12 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/php
 
 trigger:
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    appType: 'webApp'
+    WebAppName: 
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 - master
 
 pool:
